@@ -1,6 +1,6 @@
 {
   "name": "grunt-lab-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A grunt task for running server side lab tests using the library (without span).",
   "main": "tasks/grunt-lab-test.js",
   "scripts": {

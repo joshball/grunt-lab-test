@@ -22,13 +22,13 @@ module.exports = function (grunt) {
         //var files = this.files;
 
         try {
-            internals.run(options, this.filesSrc);
+            internals.run(options, this.filesSrc, done);
         }
         catch(e){
             if(e.ok){
                 grunt.log.write(e.message);
                 grunt.log.ok();
-                done(true);
+                done();
                 return;
             }
             else {
@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         }
     });
 
-    internals.run = function (options, filesSrc) {
+    internals.run = function (options, filesSrc, done) {
 
         // options = grunt.config.get("labTest");
         // check if there are files to test
@@ -67,7 +67,9 @@ module.exports = function (grunt) {
         }
 
         var scripts = internals.traverse(filesSrc, settings);
-        return RunnerReport(scripts, settings);
+        return RunnerReport(scripts, settings, function(arg){
+            done();
+        });
     };
 
     internals.traverse = function (filesSrc, options) {
