@@ -67,8 +67,8 @@ module.exports = function (grunt) {
         }
 
         var scripts = internals.traverse(filesSrc, settings);
-        return RunnerReport(scripts, settings, function(arg){
-            done();
+        return RunnerReport(scripts, settings, function(ignored, code /* , output*/){
+            done(code === 0);
         });
     };
 

@@ -27,18 +27,21 @@ module.exports = function(grunt) {
             all: {
                 src: ['tests/**/*.js']
             },
+            fail: {
+                src: ['tests/**/*.fail.*.js']
+            },
             unit: {
                 src: ['tests/**/*.unit.*.js']
             },
             integration: {
                 src: ['tests/**/*.integration.*.js']
             },
-            unsupportedOption: {
-                options: {
-                    flat       : true
-                },
-                src: ['tests/**/*.integration.*.js']
-            },
+            //unsupportedOption: {
+            //    options: {
+            //        flat       : true
+            //    },
+            //    src: ['tests/**/*.integration.*.js']
+            //},
             coverage: {
                 src: ['tests/**/*.coverage.*.js']
             }
